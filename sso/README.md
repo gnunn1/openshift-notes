@@ -26,5 +26,5 @@ keytool -genseckey -alias jgroups -storetype JCEKS -keystore jgroups.jceks -stor
 oc create secret generic sso-app-secret --from-file=keystore.jks --from-file=jgroups.jceks
 
 # Create application
-oc new-app --template=sso72-mysql-persistent -p SSO_ADMIN_USERNAME=admin -p SSO_ADMIN_PASSWORD=R@dhat1234 -p HTTPS_NAME=test -p HTTPS_PASSWORD=password -p JGROUPS_ENCRYPT_PASSWORD=password -p HOSTNAME_HTTPS=secure-sso-$(oc project -q).$OCP_WILDCARD_DOMAIN
+oc new-app --template=sso72-mysql-persistent -p SSO_ADMIN_USERNAME=admin -p SSO_ADMIN_PASSWORD=admin -p HTTPS_NAME=test -p HTTPS_PASSWORD=password -p JGROUPS_ENCRYPT_PASSWORD=password -p HOSTNAME_HTTPS=secure-sso-$(oc project -q).$OCP_WILDCARD_DOMAIN
 ```
