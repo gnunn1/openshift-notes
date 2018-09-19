@@ -1,7 +1,7 @@
-!/bin/bash
+#!/bin/bash
 
 export ISTIO_HOME=/opt/istio-1.0.0
-export PATH=$ISTIO_HOME/bin:$PATH
+# export PATH=$ISTIO_HOME/bin:$PATH
 
 # curl -L https://github.com/istio/istio/releases/download/1.0.0/istio-1.0.0-linux.tar.gz | tar xz
 

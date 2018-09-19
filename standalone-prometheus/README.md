@@ -54,4 +54,4 @@ Any pods or services you want scrapped must have annotations added to the templa
           resources: {}
 ```
 
-If you want to scrape all pods by default, see this (article)[https://labs.consol.de/development/2018/01/19/openshift_application_monitoring.html] and the section on "Scrape configuration of pods and services".
+If you want to scrape all pods by default, see this [article](https://labs.consol.de/development/2018/01/19/openshift_application_monitoring.html) and the section on "Scrape configuration of pods and services".

@@ -22,7 +22,7 @@ scrape_configs:
   - role: pod
     namespaces:
       names:
-      - prometheus
+      - sko
 
   relabel_configs:
   - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
@@ -68,7 +68,7 @@ scrape_configs:
   - role: endpoints
     namespaces:
       names:
-      - prometheus
+      - sko
 
   relabel_configs:
   - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_scrape]
@@ -125,7 +125,7 @@ scrape_configs:
   - role: service
     namespaces:
       names:
-      - prometheus
+      - sko
 
   relabel_configs:
   - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_probe]
