@@ -55,3 +55,8 @@ Any pods or services you want scrapped must have annotations added to the templa
 ```
 
 If you want to scrape all pods by default, see this [article](https://labs.consol.de/development/2018/01/19/openshift_application_monitoring.html) and the section on "Scrape configuration of pods and services".
+
+Note if you see then error below when using ```oc cluster up```, the issue is that currently the oauth-proxy used in prometheus doesn't work when using 127.0.0.1 as your public hostname. Change the public hostname to your real IP and it will work fine.
+
+```Post https://127.0.0.1:8443/oauth/token: x509: cannot validate certificate for 127.0.0.1 because it doesn't contain any IP SANs
+2018/07/06 17:58:17 server.go:2753: http: TLS handshake error from 127.0.0.1:60896: remote error: tls: bad certificate```
