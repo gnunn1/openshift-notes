@@ -1,0 +1,1 @@
+The script ```setup-grafana.sh``` stands up a standalone grafana instance for application monitoring, it assumes you are using the Prometheus instance from standalone-prometheus in this repo. If not, adjust the script variables to match your prometheus deployment.

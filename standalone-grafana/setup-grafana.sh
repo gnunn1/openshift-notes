@@ -11,6 +11,9 @@ oc adm policy add-cluster-role-to-user cluster-reader grafana
 oc process -f "${GRAFANA_YAML}" |oc create -f -
 oc rollout status deployment/grafana
 
+echo "Waiting 30 seconds for grafana to be fully up..."
+sleep 30
+
 oc adm policy add-role-to-user view -z grafana -n "${PROMETHEUS_NAMESPACE}"
 
 payload="$( mktemp )"
@@ -33,6 +36,9 @@ cat <<EOF >"${payload}"
 }
 EOF
 
+echo "Datasource payload created at ${payload}"
+
 # setup grafana data source
 grafana_host="https://$( oc get route grafana -o jsonpath='{.spec.host}' )"
+echo "Adding datasource to ${grafana_host}"
 curl --insecure -H "Content-Type: application/json" -u admin:admin "${grafana_host}/api/datasources" -X POST -d "@${payload}"
