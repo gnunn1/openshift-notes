@@ -1,0 +1,25 @@
+---
+kind: ImageStreamList
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/display-name: Fabric8 OpenJDK
+    openshift.io/provider-display-name: Fabric8
+    version: 1.0.0
+items:
+- kind: ImageStream
+  apiVersion: v1
+  metadata:
+    name: fabric8-s2i-java
+    creationTimestamp: 
+  spec:
+    dockerImageRepository: fabric8/s2i-java
+    tags:
+    - name: 3.0-java8
+      annotations:
+        description: Build and run Java applications
+        iconClass: icon-java
+        tags: builder,java
+        supports: java:8,java
+        sampleContextDir: undertow-servlet
+        sampleRepo: https://github.com/jboss-openshift/openshift-quickstarts
