@@ -11,7 +11,7 @@ If you want to use a letsencrypt certificate with RH-SSO, use the following step
 
 ```
 # The wildcard for your OpenShift installation
-export $OCP_WILDCARD_DOMAIN=apps.ocplab.com
+export OCP_WILDCARD_DOMAIN=apps.ocplab.com
 
 # Convert letsencrypt certs to a p12 file (silly java Keytool don't have an option to import a private key, it needs to be bundled in a p12 file):
 openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out pkcs.p12 -name test
