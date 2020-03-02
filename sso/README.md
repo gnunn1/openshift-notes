@@ -1,4 +1,4 @@
-To create a new RH-SSO instance in OpenShift use the following commands:
+To create a new RH-SSO instance in OpenShift use the commands below:
 
 ```
 oc new-project sso
@@ -14,7 +14,7 @@ If you want to use the letsencrypt certificate you generated for the OpenShift w
 export OCP_WILDCARD_DOMAIN=apps.ocplab.com
 
 # Convert letsencrypt certs to a p12 file (silly java Keytool don't have an option to import a private key, it needs to be bundled in a p12 file):
-openssl pkcs12 -export -in fullchain.pem -inkey privkey.pem -out pkcs.p12 -name test
+openssl pkcs12 -export -in fullchain.pem -inkey key.pem -out pkcs.p12 -name test
 
 # Create SSL keystore
 keytool -importkeystore -deststorepass password -destkeypass password -destkeystore keystore.jks -srckeystore pkcs.p12 -srcstoretype PKCS12 -srcstorepass test -alias test
