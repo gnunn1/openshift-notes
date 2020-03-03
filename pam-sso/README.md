@@ -36,6 +36,14 @@ Admin user is ```rhpamadmin```
 
 To deploy the showcase application:
 
+Clone code:
+
+```
+https://github.com/kiegroup/jbpm-wb
+git checkout 7.33.x
+cd jbpm-wb/jbpm-wb-case-mgmt/jbpm-wb-case-mgmt-showcase
+```
+
 Edit code:
 
 change web.xml to comment out old login-conf and replace it with:
@@ -45,9 +53,13 @@ change web.xml to comment out old login-conf and replace it with:
         <realm-name>pam</realm-name>
     </login-config>
 
-Change jboss-web.xml security domain to keycloak from other
+Change jboss-web.xml security domain to keycloak from other, compile code:
 
+```
+mvn clean package
+```
 
+Then deploy to OpenShift:
 
 ```
 oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -n $(oc project -q)
