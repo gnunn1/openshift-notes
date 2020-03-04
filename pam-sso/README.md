@@ -68,18 +68,25 @@ oc policy add-role-to-user view system:serviceaccount:$(oc project -q):default -
 oc new-build --image-stream=openshift/jboss-eap72-openshift:1.1 --binary=true --name=showcase
 oc start-build showcase --from-file=target/jbpm-wb-case-mgmt-showcase-7.33.1-SNAPSHOT-eap7.war
 oc new-app showcase
+```
 
 Modify route to set tls to edge termination, i.e.
 
+```
 tls:
   termination: edge
+```
 
 Also annotate the route to fix SSE timeout issues:
 
+```
 oc annotate route showcase --overwrite haproxy.router.openshift.io/timeout=1h
+```
 
+Finally add ENV variables to showcase to connect to kieserver and SSO
 
+```
 oc set env dc showcase JAVA_OPTS_APPEND="-Dorg.kie.server.location=https://pam-kieserver-pam.apps.cluster.ocplab.com/services/rest/server"
 oc set env dc showcase SSO_URL=https://secure-sso-sso.apps.cluster.ocplab.com/auth SSO_REALM=pam SSO_USERNAME=admin SSO_PASSWORD=openshift SSO_CLIENT=showcase SSO_SECRET=f22af19d-bdae-421b-80b2-dc43e9e4e64f
-
+```
 ```
