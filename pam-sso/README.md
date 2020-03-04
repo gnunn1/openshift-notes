@@ -21,7 +21,8 @@ oc new-app -f templates/rhpam76-authoring.yaml -p APPLICATION_NAME=pam \
   -p KIE_SERVER_SSO_CLIENT=kie -p KIE_SERVER_SSO_SECRET=f22af19d-bdae-421b-80b2-dc43e9e4e64f \
   -p SSO_USERNAME=admin -p SSO_PASSWORD=openshift \
   -p BUSINESS_CENTRAL_HTTPS_SECRET=businesscentral-app-secret -p BUSINESS_CENTRAL_HTTPS_NAME=test -p BUSINESS_CENTRAL_HTTPS_PASSWORD=password \
-  -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p KIE_SERVER_HTTPS_NAME=test -p KIE_SERVER_HTTPS_PASSWORD=password
+  -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p KIE_SERVER_HTTPS_NAME=test -p KIE_SERVER_HTTPS_PASSWORD=password \
+  -p BUSINESS_CENTRAL_MAVEN_USERNAME=mavenuser -p BUSINESS_CENTRAL_MAVEN_PASSWORD=openshift
 
 ```
 
